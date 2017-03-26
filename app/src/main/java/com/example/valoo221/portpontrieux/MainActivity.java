@@ -2,8 +2,11 @@ package com.example.valoo221.portpontrieux;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -27,28 +30,38 @@ import metier.Type;
 public class MainActivity extends Activity
 {
  private ListView LVEmplacement;
-
  @Override
  protected void onCreate(Bundle savedInstanceState)
  {
      super.onCreate(savedInstanceState);
      setContentView(R.layout.activity_main);
      LVEmplacement = (ListView)findViewById(R.id.LVEmplacement);
-     List<Emplacement> LesEmplacements = getEmplacements();
+     final List<Emplacement> LesEmplacements = getEmplacements();
+     System.out.println("Test avant Adapter");
      EmplacementAdapter adapter = new EmplacementAdapter(MainActivity.this, LesEmplacements);
+     System.out.println("Test apres Adapter");
      LVEmplacement.setAdapter(adapter);
+     LVEmplacement.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+         @Override
+         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+             Intent intent = new Intent(MainActivity.this, EmplacementActivity.class);
+             intent.putExtra("unEmplacement", LesEmplacements.get(position).getRefEmplacement());
+             intent.putExtra("position", position);
+             startActivity(intent);
+         }
+     });
  }
  public List<Emplacement> getEmplacements()
  {
-     ArrayList<Emplacement> lesEmplacements = new ArrayList<Emplacement>();
+     ArrayList<Emplacement> lesEmplacements = new ArrayList<>();
+     System.out.println("Test avant accesWebService()");
      AccesWebService accesWS = new AccesWebService();
+     System.out.println("Test apres accesWebService()");
      try
      {
          InputStream iS = accesWS.execute().get();
          String result = InputStreamOperations.InputStreamToString(iS);
-         System.out.println(result);
          JSONArray array = new JSONArray(result);
-         System.out.println(array.get(0).toString());
          for (int i = 0; i < array.length();i++)
          {
              JSONObject obj  = new JSONObject(array.getString(i));
@@ -76,19 +89,17 @@ public class MainActivity extends Activity
      {
          System.out.println("Erreur JSON:" + e.getMessage());
      }
-     System.out.println(lesEmplacements.get(2).getUnType().getPrix());
      return lesEmplacements;
  }
 
  private class AccesWebService extends AsyncTask<Void, Void, InputStream>
  {
-
      @Override
      protected InputStream doInBackground(Void... params)
      {
          try
          {
-             String MonUrl = "http://192.168.43.189:8080/WebService_PortPontrieux/webresources/emplacement";
+             String MonUrl = "http://192.168.1.35:8080/WebService_PortPontrieux/webresources/emplacement";
              URL url = new URL(MonUrl);
              HttpURLConnection connection = (HttpURLConnection) url.openConnection();
              connection.connect();
@@ -109,3 +120,5 @@ public class MainActivity extends Activity
      }
  }
 }
+
+

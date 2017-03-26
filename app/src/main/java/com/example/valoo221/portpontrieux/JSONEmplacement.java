@@ -28,7 +28,7 @@ public class JSONEmplacement extends AsyncTask <Void, Emplacement, ArrayList<Emp
         ArrayList<Emplacement> lesEmplacements = new ArrayList<Emplacement>();
         try
         {
-            String MonUrl="http://localhost:8080/WebService_PortPontrieux/webresources/emplacement";
+            String MonUrl="http://192.168.1.35:8080/WebService_PortPontrieux/webresources/emplacement";
             URL url = new URL(MonUrl);
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
             connection.connect();

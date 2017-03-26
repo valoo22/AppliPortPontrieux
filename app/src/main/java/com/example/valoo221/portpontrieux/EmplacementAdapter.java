@@ -49,8 +49,8 @@ public class EmplacementAdapter extends ArrayAdapter<Emplacement>
         Emplacement UnEmplacement = getItem(position);
 
         //il ne reste plus qu'à remplir notre vue
-        viewHolder.TVRefEmplacement.setText(UnEmplacement.getRefEmplacement());
-        viewHolder.TVType.setText(UnEmplacement.getUnType().getSituation());
+        viewHolder.TVRefEmplacement.setText("Emplacement n°:"+String.valueOf(UnEmplacement.getRefEmplacement()));
+        viewHolder.TVType.setText("Côté " + UnEmplacement.getUnType().getSituation());
         if(UnEmplacement.getDispo())
         {
             viewHolder.IVDispo.setImageDrawable(new ColorDrawable(Color.GREEN));

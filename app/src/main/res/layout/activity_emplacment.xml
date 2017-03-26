@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/TVEmplacementTitre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="13dp"
+        android:layout_marginTop="14dp"
+        android:text="Emplacement N° :"
+        android:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/TVRefEmplacement"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/TVEmplacementTitre"
+        android:layout_alignBottom="@+id/TVEmplacementTitre"
+        android:layout_toEndOf="@+id/TVEmplacementTitre"
+        android:text="null"
+        android:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/TVDispoTitre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/TVEmplacementTitre"
+        android:layout_below="@+id/TVEmplacementTitre"
+        android:layout_marginTop="25dp"
+        android:text="Disponibilité de l'Emplacement :" />
+
+    <TextView
+        android:id="@+id/TVDispo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/TVDispoTitre"
+        android:layout_toEndOf="@+id/TVDispoTitre"
+        android:text="null"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/TVSituationTitre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/TVDispoTitre"
+        android:layout_below="@+id/TVDispoTitre"
+        android:layout_marginTop="24dp"
+        android:text="Situation de l'Emplacement :" />
+
+    <TextView
+        android:id="@+id/TVSituation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/TVSituationTitre"
+        android:layout_alignBottom="@+id/TVSituationTitre"
+        android:layout_toEndOf="@+id/TVSituationTitre"
+        android:text="null"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/TVProfondeurTitre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/TVSituationTitre"
+        android:layout_below="@+id/TVSituationTitre"
+        android:layout_marginTop="24dp"
+        android:text="Profondeur de l'Emplacent :" />
+
+    <TextView
+        android:id="@+id/TVProfondeur"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/TVProfondeurTitre"
+        android:layout_alignBottom="@+id/TVProfondeurTitre"
+        android:layout_toEndOf="@+id/TVProfondeurTitre"
+        android:text="null"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/TVPrixTitre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/TVProfondeurTitre"
+        android:layout_below="@+id/TVProfondeurTitre"
+        android:layout_marginTop="21dp"
+        android:text="Prix de l'Emplacement :" />
+
+    <TextView
+        android:id="@+id/TVPrix"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/TVPrixTitre"
+        android:layout_alignBottom="@+id/TVPrixTitre"
+        android:layout_toEndOf="@+id/TVPrixTitre"
+        android:text="null"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/BtnReserve"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toStartOf="@+id/TVDispo"
+        android:text="Réservé l'Emplacement" />
+
+    <Button
+        android:id="@+id/btnRetour"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Retour"
+        android:layout_alignBaseline="@+id/BtnReserve"
+        android:layout_alignBottom="@+id/BtnReserve"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="24dp" />
+</RelativeLayout>
